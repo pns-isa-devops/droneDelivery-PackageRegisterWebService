@@ -5,6 +5,7 @@ import fr.unice.polytech.isa.dd.PackageFinder;
 import fr.unice.polytech.isa.dd.PackageRegistration;
 import fr.unice.polytech.isa.dd.entities.Provider;
 import org.joda.time.DateTime;
+import utils.MyDate;
 
 import javax.ejb.EJB;
 import javax.ejb.Stateless;
@@ -18,7 +19,7 @@ public class PackageRegisterWebServiceImp implements PackageRegisterWebService {
     @EJB private PackageRegistration registry;
 
     @Override
-    public void register(int id, Double w, DateTime dt, Provider pro){
+    public void register(int id, Double w, MyDate dt, Provider pro){
         registry.register(id, w, dt, pro);
     }
 

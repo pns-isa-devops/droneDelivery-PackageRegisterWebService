@@ -6,6 +6,7 @@ import fr.unice.polytech.isa.dd.entities.Provider;
 import fr.unice.polytech.isa.dd.entities.Package;
 
 import org.joda.time.DateTime;
+import utils.MyDate;
 
 import javax.jws.WebMethod;
 import javax.jws.WebParam;
@@ -18,7 +19,7 @@ public interface PackageRegisterWebService {
     @WebMethod
     void register(@WebParam(name="id") int nb,
                   @WebParam(name="w") Double w,
-                  @WebParam(name="dateTime") DateTime dt,
+                  @WebParam(name="dateTime") MyDate dt,
                   @WebParam(name="provider") Provider pro);
 
 
