@@ -13,18 +13,20 @@ import javax.jws.WebParam;
 import javax.jws.WebResult;
 import javax.jws.WebService;
 
-@WebService(targetNamespace = "http://www.polytech.unice.fr/si/4a/isa/dd/package")
+@WebService(targetNamespace = "http://www.polytech.unice.fr/si/4a/isa/dd/packageService")
 public interface PackageRegisterWebService {
 
     @WebMethod
-    void register(@WebParam(name="id") int nb,
+    Boolean register(@WebParam(name="id") String nb,
                   @WebParam(name="w") Double w,
-                  @WebParam(name="dateTime") MyDate dt,
+                  @WebParam(name="dateTime") String dt,
                   @WebParam(name="provider") Provider pro);
 
-
+    @WebMethod
+    @WebResult(name = "provider_find")
+    Provider findProvider(@WebParam(name="provider_name") String name);
 
     @WebMethod
     @WebResult(name = "package")
-    Package findPackage(@WebParam(name="id") int nb);
+    Package findPackage(@WebParam(name="id") String nb);
 }
