@@ -23,7 +23,7 @@ public interface PackageRegisterWebService {
     Boolean registerPackage(@WebParam(name="secretNumber") String secretNumber,
                   @WebParam(name="weight") Double weight,
                   @WebParam(name="dateTime") String deliveryDate,
-                  @WebParam(name="providerName") String providerName) throws AlreadyExistingPackageException;
+                  @WebParam(name="providerName") String providerName) throws AlreadyExistingPackageException, UnknownProviderException;
 
     @WebMethod
     @WebResult(name = "provider_found")

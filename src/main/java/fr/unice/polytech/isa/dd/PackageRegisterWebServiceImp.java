@@ -26,7 +26,7 @@ public class PackageRegisterWebServiceImp implements PackageRegisterWebService {
 
 
     @Override
-    public Boolean registerPackage(String secretNumber, Double weight, String deliveryDate, String providerName) throws AlreadyExistingPackageException {
+    public Boolean registerPackage(String secretNumber, Double weight, String deliveryDate, String providerName) throws AlreadyExistingPackageException, UnknownProviderException {
         return packageRegistration.register(secretNumber, weight, deliveryDate, providerName);
     }
 
