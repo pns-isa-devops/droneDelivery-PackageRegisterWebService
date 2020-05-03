@@ -4,6 +4,8 @@ import fr.unice.polytech.isa.dd.entities.Package;
 import fr.unice.polytech.isa.dd.PackageFinder;
 import fr.unice.polytech.isa.dd.PackageRegistration;
 import fr.unice.polytech.isa.dd.entities.Provider;
+import fr.unice.polytech.isa.dd.exceptions.AlreadyExistingPackageException;
+import fr.unice.polytech.isa.dd.exceptions.UnknownPackageException;
 import org.joda.time.DateTime;
 import utils.MyDate;
 
@@ -16,26 +18,26 @@ import javax.jws.WebService;
 public class PackageRegisterWebServiceImp implements PackageRegisterWebService {
 
     @EJB
-    private PackageFinder finder;
+    private PackageFinder packageFinder;
     @EJB
-    private PackageRegistration registry;
-    @EJB private ProviderFinder finderP;
+    private PackageRegistration packageRegistration;
+    @EJB private ProviderFinder providerFinder;
 
 
     @Override
-    public Boolean register(String id, Double w, String dt, Provider pro) {
-        return registry.register(id, w, dt, pro);
+    public Boolean registerPackage(String secretNumber, Double weight, String deliveryDate, String providerName) throws AlreadyExistingPackageException {
+        return packageRegistration.register(secretNumber, weight, deliveryDate, providerName);
     }
 
     @Override
-    public Package findPackage(String id) {
-        return finder.findById(id);
+    public Package findPackage(String secretNumber) throws UnknownPackageException {
+        return packageFinder.findPackageBySecretNumber(secretNumber);
     }
 
     @Override
     public Provider findProvider(String name){
         System.out.println("findProvider");
-        return finderP.findByName(name);
+        return providerFinder.findByName(name);
     }
 
 

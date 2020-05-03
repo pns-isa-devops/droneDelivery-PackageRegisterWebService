@@ -5,6 +5,8 @@ package fr.unice.polytech.isa.dd;
 import fr.unice.polytech.isa.dd.entities.Provider;
 import fr.unice.polytech.isa.dd.entities.Package;
 
+import fr.unice.polytech.isa.dd.exceptions.AlreadyExistingPackageException;
+import fr.unice.polytech.isa.dd.exceptions.UnknownPackageException;
 import org.joda.time.DateTime;
 import utils.MyDate;
 
@@ -17,16 +19,16 @@ import javax.jws.WebService;
 public interface PackageRegisterWebService {
 
     @WebMethod
-    Boolean register(@WebParam(name="id") String nb,
-                  @WebParam(name="w") Double w,
-                  @WebParam(name="dateTime") String dt,
-                  @WebParam(name="provider") Provider pro);
+    Boolean registerPackage(@WebParam(name="secretNumber") String secretNumber,
+                  @WebParam(name="weight") Double weight,
+                  @WebParam(name="dateTime") String deliveryDate,
+                  @WebParam(name="providerName") String providerName) throws AlreadyExistingPackageException;
 
     @WebMethod
-    @WebResult(name = "provider_find")
-    Provider findProvider(@WebParam(name="provider_name") String name);
+    @WebResult(name = "provider_found")
+    Provider findProvider(@WebParam(name="provider_name") String provider_name);
 
     @WebMethod
-    @WebResult(name = "package")
-    Package findPackage(@WebParam(name="id") String nb);
+    @WebResult(name = "package_found")
+    Package findPackage(@WebParam(name="secretNumber") String secretNumber) throws UnknownPackageException;
 }
