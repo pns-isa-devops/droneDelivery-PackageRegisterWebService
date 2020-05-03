@@ -6,6 +6,7 @@ import fr.unice.polytech.isa.dd.PackageRegistration;
 import fr.unice.polytech.isa.dd.entities.Provider;
 import fr.unice.polytech.isa.dd.exceptions.AlreadyExistingPackageException;
 import fr.unice.polytech.isa.dd.exceptions.UnknownPackageException;
+import fr.unice.polytech.isa.dd.exceptions.UnknownProviderException;
 import org.joda.time.DateTime;
 import utils.MyDate;
 
@@ -35,9 +36,9 @@ public class PackageRegisterWebServiceImp implements PackageRegisterWebService {
     }
 
     @Override
-    public Provider findProvider(String name){
+    public Provider findProvider(String provider_name) throws UnknownProviderException {
         System.out.println("findProvider");
-        return providerFinder.findByName(name);
+        return providerFinder.findProviderByName(provider_name);
     }
 
 

@@ -7,6 +7,7 @@ import fr.unice.polytech.isa.dd.entities.Package;
 
 import fr.unice.polytech.isa.dd.exceptions.AlreadyExistingPackageException;
 import fr.unice.polytech.isa.dd.exceptions.UnknownPackageException;
+import fr.unice.polytech.isa.dd.exceptions.UnknownProviderException;
 import org.joda.time.DateTime;
 import utils.MyDate;
 
@@ -26,7 +27,7 @@ public interface PackageRegisterWebService {
 
     @WebMethod
     @WebResult(name = "provider_found")
-    Provider findProvider(@WebParam(name="provider_name") String provider_name);
+    Provider findProvider(@WebParam(name="provider_name") String provider_name) throws UnknownProviderException;
 
     @WebMethod
     @WebResult(name = "package_found")
