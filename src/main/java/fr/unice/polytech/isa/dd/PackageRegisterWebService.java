@@ -1,16 +1,11 @@
 package fr.unice.polytech.isa.dd;
 
-//import fr.unice.polytech.isa.dd
-
 import fr.unice.polytech.isa.dd.entities.Provider;
 import fr.unice.polytech.isa.dd.entities.Package;
 
 import fr.unice.polytech.isa.dd.exceptions.AlreadyExistingPackageException;
 import fr.unice.polytech.isa.dd.exceptions.UnknownPackageException;
 import fr.unice.polytech.isa.dd.exceptions.UnknownProviderException;
-import org.joda.time.DateTime;
-import utils.MyDate;
-
 import javax.jws.WebMethod;
 import javax.jws.WebParam;
 import javax.jws.WebResult;
