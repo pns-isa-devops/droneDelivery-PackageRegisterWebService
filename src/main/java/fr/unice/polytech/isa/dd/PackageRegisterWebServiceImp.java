@@ -27,11 +27,13 @@ public class PackageRegisterWebServiceImp implements PackageRegisterWebService {
 
     @Override
     public Boolean registerPackage(String secretNumber, Double weight, String deliveryDate, String providerName) throws AlreadyExistingPackageException, UnknownProviderException {
+        System.out.println("Enregistrement Colis");
         return packageRegistration.register(secretNumber, weight, deliveryDate, providerName);
     }
 
     @Override
     public Package findPackage(String secretNumber) throws UnknownPackageException {
+        System.out.println("Find Package");
         return packageFinder.findPackageBySecretNumber(secretNumber);
     }
 
