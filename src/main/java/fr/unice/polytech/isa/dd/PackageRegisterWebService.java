@@ -30,6 +30,10 @@ public interface PackageRegisterWebService {
     Provider findProvider(@WebParam(name="provider_name") String provider_name) throws UnknownProviderException;
 
     @WebMethod
+    @WebResult(name = "delete_all")
+    boolean deleteAll();
+
+    @WebMethod
     @WebResult(name = "package_found")
     Package findPackage(@WebParam(name="secretNumber") String secretNumber) throws UnknownPackageException;
 }

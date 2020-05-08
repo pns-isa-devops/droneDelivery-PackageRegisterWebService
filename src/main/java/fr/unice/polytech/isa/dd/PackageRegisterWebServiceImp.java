@@ -41,6 +41,12 @@ public class PackageRegisterWebServiceImp implements PackageRegisterWebService {
         return providerFinder.findProviderByName(provider_name);
     }
 
+    @Override
+    public boolean deleteAll() {
+        System.out.println("deleteAll");
+        return packageFinder.deleteAll();
+    }
+
 
 
 }
