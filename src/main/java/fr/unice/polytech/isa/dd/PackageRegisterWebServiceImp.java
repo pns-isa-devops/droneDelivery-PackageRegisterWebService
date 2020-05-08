@@ -18,11 +18,11 @@ import javax.jws.WebService;
 @Stateless(name = "PackageWS")
 public class PackageRegisterWebServiceImp implements PackageRegisterWebService {
 
-    @EJB
+    @EJB(name = "package-stateless")
     private PackageFinder packageFinder;
-    @EJB
+    @EJB(name = "package-stateless")
     private PackageRegistration packageRegistration;
-    @EJB private ProviderFinder providerFinder;
+    @EJB(name = "provider-stateless") private ProviderFinder providerFinder;
 
 
     @Override
